@@ -9,7 +9,7 @@ npm run dev
 
 These commands will install all the required modules and starts watching for changes to the javascript files and a live-server.
 
-** Comman List **
+**Comman List**
 
 ```sh
 npm run start

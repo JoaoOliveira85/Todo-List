@@ -1,0 +1,20 @@
+#noteBoard {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 5px;
+}
+
+.notes {
+	border: 1px solid black;
+	padding: 2px;
+}
+
+.noteHeader {
+	display: flex;
+	justify-content: space-between;
+}
+
+.deleteNote {
+	margin-left: auto;
+	order: 2;
+}

@@ -9,6 +9,7 @@
 		"webpack": "^5.11.1",
 		"webpack-cli": "^4.3.1"
 	},
+	"type": "module",
 	"name": "todo-list",
 	"description": "ToDo List app part of the odin project track",
 	"version": "1.0.0",

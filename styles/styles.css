@@ -1,4 +1,11 @@
+#content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 #noteBoard {
+	width: 65vw;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 5px;
@@ -6,7 +13,8 @@
 
 .notes {
 	border: 1px solid black;
-	padding: 2px;
+	padding: 5px;
+	height: 250px;
 }
 
 .noteHeader {
@@ -14,7 +22,51 @@
 	justify-content: space-between;
 }
 
+.noteFooter {
+	display: flex;
+	justify-content: space-between;
+}
+.noteBody {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	height: 85%;
+}
+
 .deleteNote {
 	margin-left: auto;
 	order: 2;
+	cursor: pointer;
+}
+
+.noteStatus {
+	cursor: pointer;
+}
+
+.newNote {
+	background-color: cornsilk;
+	color: gray;
+}
+
+.titleInput {
+	font-weight: bolder;
+}
+
+.inputField {
+	background: none;
+	border: none;
+}
+
+.noteDescription {
+	height: 100%;
+}
+
+.descriptionInput {
+	width: 100%;
+	height: 100%;
+	resize: none;
+}
+
+.unsaved {
+	box-shadow: 0 0 10px red;
 }

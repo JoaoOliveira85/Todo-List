@@ -1,13 +1,29 @@
-#content {
+body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
+#content {
+	display: flex;
+	flex-direction: column;
+	height: 98vh;
+}
+
 #noteBoard {
 	width: 65vw;
+	height: fit-content;
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-template-rows: repeat(auto, 1fr);
+	gap: 5px;
+}
+
+#completed {
+	margin-top: auto;
+	display: flex;
+	flex-direction: row;
+	align-content: flex-end;
 	gap: 5px;
 }
 
@@ -15,6 +31,19 @@
 	border: 1px solid black;
 	padding: 5px;
 	height: 250px;
+	background-color: cadetblue;
+}
+
+.completed {
+	align-self: flex-end;
+	gap: 50px;
+	filter: grayscale(100%);
+	height: 50px;
+	bottom: 0;
+}
+
+.completed .noteBody {
+	display: none;
 }
 
 .noteHeader {

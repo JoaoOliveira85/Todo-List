@@ -23,7 +23,13 @@ const drawNote = (note, noteBoard) => {
 	if (note.type === "newNote") {
 		newNote.className = newNote.className + " " + "newNote";
 	}
-	noteBoard.appendChild(newNote);
+	if (note.status) {
+		document.getElementById("completed").appendChild(newNote);
+		document.getElementById(`note${note.id}`).classList.add("completed");
+	} else {
+		noteBoard.appendChild(newNote);
+		document.getElementById(`note${note.id}`).classList.remove("completed");
+	}
 	createDivs(
 		newNote,
 		"div",
@@ -72,10 +78,7 @@ const drawNote = (note, noteBoard) => {
 	}
 	document.querySelector(`#note${note.id}title`).appendChild(titleInput);
 	document.querySelector(`#delete${note.id}note`).textContent = "X";
-	document.querySelector(`#delete${note.id}note`).className =
-		document.querySelector(`#delete${note.id}note`).className +
-		" " +
-		"deleteNote";
+	document.querySelector(`#delete${note.id}note`).classList.add("deleteNote");
 	if (note.type != "newNote") {
 		document
 			.querySelector(`#delete${note.id}note`)
@@ -170,10 +173,7 @@ const drawNote = (note, noteBoard) => {
 				render(document.querySelector("#noteBoard"), noteList);
 			});
 	}
-	document.querySelector(`#note${note.id}status`).className =
-		document.querySelector(`#note${note.id}status`).className +
-		" " +
-		"noteStatus";
+	document.querySelector(`#note${note.id}status`).classList.add("noteStatus");
 	if (note.type === "newNote") {
 		const addButton = document.createElement("button");
 		addButton.innerText = "Add";
@@ -195,6 +195,11 @@ const drawNote = (note, noteBoard) => {
 const render = (noteBoard, noteList) => {
 	while (noteBoard.firstChild) {
 		noteBoard.removeChild(noteBoard.firstChild);
+	}
+	while (document.querySelector("#completed").firstChild) {
+		document
+			.querySelector("#completed")
+			.removeChild(document.querySelector("#completed").firstChild);
 	}
 	noteList.map((note) => {
 		drawNote(note, noteBoard);
